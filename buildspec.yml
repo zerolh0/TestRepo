@@ -10,10 +10,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn install
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo Report > report.txt
+      - bash <(curl -s https://codecov.io/bash) -t 09816c4d-1293-4be0-9516-0baa8e406e57
 artifacts:
   files:
     - target/messageUtil-1.0.jar
